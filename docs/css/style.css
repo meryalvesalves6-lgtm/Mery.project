@@ -1,0 +1,226 @@
+/* Paleta: tons de preto e roxo com foco acadêmico */
+:root {
+  --preto-absoluto: #050408;
+  --preto-base: #0a0811;
+  --roxo-abissal: #120d1f;
+  --roxo-escuro: #1b1330;
+  --roxo-medio: #2b1d4c;
+  --roxo-borda: #3d296e;
+  --roxo-destaque: #8b5cf6;
+  --roxo-brilhante: #a78bfa;
+  --roxo-claro: #ddd6fe;
+  --roxo-neve: #f5f3ff;
+  --roxo-cinza: #bdb3d9;
+}
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 4.5rem; /* Evita que o header fixo cubra o título ao clicar nos links */
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  font-family: "Inter", "Segoe UI", Roboto, system-ui, sans-serif;
+  background:
+    radial-gradient(circle at top center, rgba(139, 92, 246, 0.14), transparent 55%),
+    linear-gradient(180deg, var(--preto-base) 0%, var(--preto-absoluto) 100%);
+  background-color: var(--preto-base);
+  color: var(--roxo-neve);
+  line-height: 1.65;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+/* Cabeçalho e navegação responsiva */
+header {
+  background-color: rgba(10, 8, 17, 0.92);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid var(--roxo-borda);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  padding: 0.75rem 1rem;
+}
+
+nav {
+  max-width: 960px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.4rem;
+  align-items: center;
+}
+
+nav a {
+  color: var(--roxo-cinza);
+  text-decoration: none;
+  font-size: clamp(0.78rem, 2.8vw, 0.95rem);
+  font-weight: 500;
+  padding: 0.45rem 0.35rem;
+  border-radius: 6px;
+  text-align: center;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  transition: color 0.2s ease, background-color 0.2s ease;
+}
+
+nav a:hover,
+nav a:focus-visible,
+nav a.ativo {
+  color: var(--roxo-neve);
+  background-color: var(--roxo-escuro);
+}
+
+nav a.ativo {
+  border-bottom: 2px solid var(--roxo-brilhante);
+}
+
+/* Conteúdo principal */
+main {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 1.5rem 1rem 2.75rem;
+}
+
+section {
+  margin-bottom: 2.25rem;
+}
+
+h1,
+h2 {
+  font-family: Georgia, "Times New Roman", serif;
+  font-weight: 700;
+  overflow-wrap: break-word;
+}
+
+h1 {
+  font-size: clamp(1.5rem, 5vw, 2.35rem);
+  line-height: 1.25;
+  color: var(--roxo-neve);
+  margin-bottom: 0.75rem;
+}
+
+h2 {
+  font-size: clamp(1.2rem, 3.8vw, 1.45rem);
+  color: var(--roxo-brilhante);
+  margin-bottom: 1rem;
+  padding-bottom: 0.45rem;
+  border-bottom: 1px solid var(--roxo-borda);
+}
+
+p {
+  color: var(--roxo-cinza);
+  font-size: clamp(0.92rem, 2.5vw, 1rem);
+  max-width: 72ch;
+  overflow-wrap: break-word;
+}
+
+/* Seção Sobre mim */
+#sobre {
+  background: linear-gradient(160deg, var(--roxo-escuro) 0%, var(--roxo-abissal) 100%);
+  border: 1px solid var(--roxo-borda);
+  border-radius: 10px;
+  padding: 1.35rem 1.1rem;
+}
+
+/* Cartões em #aprendendo (1 coluna no mobile) */
+#aprendendo ul {
+  list-style: none;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 0.85rem;
+}
+
+#aprendendo li {
+  background-color: var(--roxo-abissal);
+  border: 1px solid var(--roxo-borda);
+  border-left: 4px solid var(--roxo-destaque);
+  border-radius: 8px;
+  padding: 1rem 1.1rem;
+  color: var(--roxo-cinza);
+  font-size: clamp(0.9rem, 2.5vw, 0.96rem);
+  overflow-wrap: break-word;
+  transition: transform 0.2s ease, background-color 0.2s ease, border-color 0.2s ease;
+}
+
+#aprendendo li:hover,
+#aprendendo li.selecionado {
+  transform: translateY(-2px);
+  background-color: var(--roxo-escuro);
+  border-color: var(--roxo-brilhante);
+}
+
+#aprendendo li strong {
+  color: var(--roxo-claro);
+  font-family: Georgia, "Times New Roman", serif;
+}
+
+/* Rodapé (#contato) */
+footer#contato {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 1.25rem 1rem 2rem;
+  border-top: 1px solid var(--roxo-borda);
+  text-align: center;
+  font-size: clamp(0.82rem, 2.2vw, 0.9rem);
+}
+
+footer#contato p {
+  margin: 0 auto;
+}
+
+/* Tablets e telas médias (>= 640px) */
+@media (min-width: 640px) {
+  header {
+    padding: 0.85rem 1.5rem;
+  }
+
+  nav {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    gap: 0.5rem 1.25rem;
+  }
+
+  nav a {
+    text-align: left;
+    padding: 0.35rem 0.65rem;
+  }
+
+  main {
+    padding: 2rem 1.5rem 3.25rem;
+  }
+
+  #sobre {
+    padding: 1.85rem 1.75rem;
+  }
+
+  #aprendendo ul {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1rem;
+  }
+}
+
+/* Desktops (>= 960px) */
+@media (min-width: 960px) {
+  main {
+    padding: 2.25rem 1.25rem 3.5rem;
+  }
+
+  #sobre {
+    padding: 2.25rem 2rem;
+  }
+
+  #aprendendo ul {
+    gap: 1.2rem;
+  }
+}
